@@ -1,0 +1,82 @@
+/* page layout */
+.multi-step-container {
+    /* min-width: 16rem; */
+    /* max-width: 24rem; */
+    /* margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 50px;
+    display: flex; */
+
+    display: grid;
+    min-height: 100dvh;
+    max-width: 1440px;
+    margin-inline: auto;
+    grid-auto-rows: auto 1fr auto;
+    grid-template-areas:
+        "steps"
+        "form"
+        "controls";
+}
+
+aside.side-steps {
+    background-image: url("../assets/images/bg-sidebar-desktop.svg");
+    background-size: cover;
+    background-position: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* float: left;
+    width: 30%;
+    text-align: center;
+    padding: 10px 0px; */
+
+    grid-area: steps;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+aside.side-steps.active .step-number {
+    background-color: var(--light-blue);
+    color: var(--marine-blue);
+    border: none;
+}
+
+aside.side-steps .side-step {
+    counter-increment: step-counter;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.step-number {
+    width: 2rem;
+    aspect-ratio: 1;
+    border-radius: 100vh;
+    border: 1px solid var(--white);
+    display: grid;
+    place-items: center;
+    transition: background var(--tarnsition-duration);
+}
+
+.step-number::after {
+    content: counter(step-counter);
+}
+
+.step-label:first-child {
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.step-label:first-child::after {
+    content: " " counter(step-counter);
+}
+
+.step-label:nth-child(2) {
+    letter-spacing: 1.5px;
+}
+
+/*  STEP FORMS */
+section.form-section {
+    grid-area: form;
+}
