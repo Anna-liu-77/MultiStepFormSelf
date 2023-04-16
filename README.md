@@ -80,9 +80,18 @@ Users should be able to:
     - vh: 是基于视图窗口的单位，vh:1% 表示视口宽度的1%
     - vw: 是基于视图窗口的单位，vw:1% 表示视口高度的1%
     - dvh: d是dynamic，动态的视口单位
-    - rem/em：
-    - calc():
-    - clamp():
+    - rem/em：都是相对长度单位，rem相对于根元素`<html>` , em相对于父元素
+    - calc(): 使用： `width: calc(100% - 80px);` 
+    [calc()函数-MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/calc)
+    - clamp(): 这个函数的作用是把一个值限制在一个上限和下限之间，当这个值超过最小值和最大值的范围时，在最小值和最大值之间选择一个值使用。
+    参数： 最小值、首选值、最大值，即clamp(MIN, VAL, MAX) 其实就是表示 max(MIN, min(VAL, MAX))
+    使用：`font-size: clamp(1rem, 10vw, 2rem);` ，无论窗口怎么改变，字体大小不会小于设置的最小值，也不会超过设置的最大值。
+    选值规则： 
+        - 当首选值比最小值要小时，则使用最小值。
+        - 当首选值介于最小值和最大值之间时，用首选值。
+        - 当首选值比最大值要大时，则使用最大值。
+    [clamp()函数-MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clamp)
+
 7. CSS网格布局：[网格](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Grids)
 8. scss:
     - 定义全局变量：
